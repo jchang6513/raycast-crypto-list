@@ -1,4 +1,4 @@
-export type SymbolList = {
+export type Coin = {
   id: number;
   name: string;
   fullName: string;
@@ -10,4 +10,6 @@ export type SymbolList = {
   dayChangeAmount: number;
   marketCap: number;
   price: number;
+  isFavorite: boolean;
+  toggleFavorite: () => void;
 }
