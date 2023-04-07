@@ -9,8 +9,8 @@
   "commands": [
     {
       "name": "index",
-      "title": "Show List and Detail",
-      "description": "Template for showing a static list and a detail view",
+      "title": "Show Crypto List and Detail",
+      "description": "Display cryptocurrency list and a detail view",
       "mode": "view"
     }
   ],

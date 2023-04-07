@@ -2,12 +2,13 @@ import { Action, ActionPanel, Color, Icon, List } from "@raycast/api"
 import { Coin } from "../types"
 import { useMemo } from "react"
 import { Detail } from "./Detail"
+import { spotTradingPage } from "../utils"
 
 type Props = { coin: Coin }
 
 export const ListItem = (props: Props) => {
   const { coin } = props
-  const { id, name, fullName, rank, isFavorite, toggleFavorite } = coin
+  const { id, symbol, name, fullName, rank, isFavorite, toggleFavorite } = coin
 
   const icon = useMemo(() => ({
     source: Icon.Star,
@@ -29,6 +30,10 @@ export const ListItem = (props: Props) => {
             title={isFavorite ? "Remove From Favorites" : "Add To Favorites"}
             shortcut={{ modifiers: ["cmd"], key: "f" }}
             onAction={toggleFavorite}
+          />
+          <Action.OpenInBrowser
+            shortcut={{ modifiers: ["cmd"], key: "enter" }}
+            url={spotTradingPage(symbol)}
           />
         </ActionPanel>
       }

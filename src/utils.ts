@@ -9,3 +9,6 @@ export const formatNumber = (num: number, style = 'decimal') => {
     },
   ).format(num);
 }
+
+export const spotTradingPage = (symbol: string) =>
+  `https://www.binance.com/zh-TC/trade/${symbol}`
