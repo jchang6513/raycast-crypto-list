@@ -10,6 +10,16 @@ export type Coin = {
   dayChangeAmount: number;
   marketCap: number;
   price: number;
+  lowPrice: number;
+  highPrice: number;
   isFavorite: boolean;
   toggleFavorite: () => void;
+}
+
+export type Ticker = {
+  symbol: string;
+  priceChangePercent: string;
+  openPrice: string;
+  highPrice: string;
+  lowPrice: string;
 }
