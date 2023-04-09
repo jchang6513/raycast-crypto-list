@@ -19,7 +19,7 @@ export type Coin = {
 export type Ticker = {
   symbol: string;
   priceChangePercent: string;
-  openPrice: string;
+  lastPrice: string;
   highPrice: string;
   lowPrice: string;
 }

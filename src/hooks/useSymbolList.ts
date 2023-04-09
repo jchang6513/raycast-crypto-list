@@ -34,7 +34,7 @@ export const useSymbolList = () => {
     const sortedData = sortBy(list, 'rank')
     return sortedData.map((d) => ({
       ...d,
-      price: tickerMap[d.symbol]?.openPrice || d.price,
+      price: tickerMap[d.symbol]?.lastPrice || d.price,
       highPrice: tickerMap[d.symbol]?.highPrice || d.price,
       lowPrice: tickerMap[d.symbol]?.lowPrice || d.price,
       dayChange: tickerMap[d.symbol]?.priceChangePercent || d.dayChange,
