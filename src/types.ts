@@ -23,3 +23,7 @@ export type Ticker = {
   highPrice: string;
   lowPrice: string;
 }
+
+export type Preference = {
+  colorPreference: 'greenUp' | 'greenDown'
+}

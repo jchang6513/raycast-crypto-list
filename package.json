@@ -14,6 +14,26 @@
       "mode": "view"
     }
   ],
+  "preferences": [
+    {
+      "name": "colorPreference",
+      "title": "Color Preference",
+      "description": "Color preference",
+      "type": "dropdown",
+      "required": true,
+      "data": [
+        {
+          "title": "Green Up/Red Down",
+          "value": "greenUp"
+        },
+        {
+          "title": "Green Down/Red Up",
+          "value": "greenDown"
+        }
+      ],
+      "default": "greenUp"
+    }
+  ],
   "dependencies": {
     "@raycast/api": "^1.49.2",
     "axios": "^1.3.4",

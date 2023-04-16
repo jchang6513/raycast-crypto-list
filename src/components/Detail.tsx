@@ -1,6 +1,6 @@
-import { Color, List } from "@raycast/api"
+import { List } from "@raycast/api"
 import { Coin } from "../types"
-import { formatNumber } from "../utils"
+import { formatNumber, getPriceColor, getSign } from "../utils"
 
 type Props = { coin: Coin }
 
@@ -22,8 +22,8 @@ export const Detail = (props: Props) => {
           <List.Item.Detail.Metadata.Label
             title="24h Change"
             text={{
-              color: dayChange > 0 ? Color.Red : Color.Green,
-              value: `${String(dayChange)}%`
+              color: getPriceColor(dayChange),
+              value: `${getSign(dayChange)}${String(Math.abs(dayChange))}%`
             }}
           />
           <List.Item.Detail.Metadata.Separator />
