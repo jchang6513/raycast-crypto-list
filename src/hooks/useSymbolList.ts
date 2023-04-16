@@ -5,6 +5,8 @@ import { useFavorites } from "./useFavorite";
 import { sortBy } from "lodash";
 import { DAY_TICKER_URL, SYMBOL_LIST_URL } from "../constants";
 
+const USDT_SYMBOL = "USDTBIDR"
+
 export const useSymbolList = () => {
   const [list, setList] = useState<Coin[]>([]);
   const [tickerMap, setTickerMap] = useState<Record<string, Ticker>>({});
@@ -32,7 +34,13 @@ export const useSymbolList = () => {
 
   return useMemo(() => {
     const sortedData = sortBy(list, 'rank')
-    return sortedData.map((d) => ({
+    return sortedData.map((d) => (d.symbol === USDT_SYMBOL ? {
+      ...d,
+      highPrice: d.price,
+      lowPrice: d.price,
+      isFavorite: favorites.includes(d.symbol),
+      toggleFavorite: () => toggleFavorite(d.symbol),
+    } : {
       ...d,
       price: tickerMap[d.symbol]?.lastPrice || d.price,
       highPrice: tickerMap[d.symbol]?.highPrice || d.price,

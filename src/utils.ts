@@ -1,14 +1,18 @@
 import { Color, getPreferenceValues } from "@raycast/api";
 import { Preference } from "./types";
 
-export const formatNumber = (num: number, style = 'decimal') => {
+export const formatNumber = (num: number, option?: { style?: string, precision?: number }) => {
+  const defaultPrecision = Math.abs(num) >= 1 ? 2 : 8
+
+  const { style = 'decimal', precision = defaultPrecision } = option || {}
+
   return new Intl.NumberFormat(
     'en-US',
     {
       style,
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: precision,
+      maximumFractionDigits: precision,
     },
   ).format(num);
 }
